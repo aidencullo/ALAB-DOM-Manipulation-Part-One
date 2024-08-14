@@ -23,7 +23,7 @@ mainEl.classList.add('flex-ctr')
 
 
 // Select and cache the <nav id="top-menu"> element in a variable named topMenuEl.
-topMenuEl = document.querySelector('#top-menu')
+const topMenuEl = document.querySelector('#top-menu')
 
 // Set the height of the topMenuEl element to be 100%.
 topMenuEl.style.height = '100%'
@@ -33,3 +33,31 @@ topMenuEl.style.backgroundColor = 'var(--top-menu-bg)'
 
 //   Add a class of flex-around to topMenuEl.
 topMenuEl.classList.add('flex-around')
+
+
+//part 3
+
+
+// Very often, you will be working with data provided by external sources in a variety of ways. For this project, copy the following data structure to the top of your index.js file; you will use it to create your menu buttons.
+// "// Menu data structure
+var menuLinks = [
+  { text: 'about', href: '/about' },
+  { text: 'catalog', href: '/catalog' },
+  { text: 'orders', href: '/orders' },
+  { text: 'account', href: '/account' },
+];
+
+// If this data was provided by an external source, it would allow that source to control how our menu is built. We would simply implement the logic, and allow the data to decide what displays. This is not typically done with menus, but it can be done with any DOM element.
+// To continue:
+// Iterate over the entire menuLinks array and for each "link" object:
+for ( const link of menuLinks) {
+  // Create an <a> element.
+  const el  = document.createElement('a')
+  // On the new element, add an href attribute with its value set to the href property of the "link" object.
+  el.href = link.href
+  // Set the new element's content to the value of the text property of the "link" object.
+  el.textContent = link.text
+  // Append the new element to the topMenuEl element.
+  topMenuEl.appendChild(el)
+
+}
