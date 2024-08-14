@@ -225,17 +225,17 @@ var menuLinks = [{
 // If this data was provided by an external source, it would allow that source to control how our menu is built. We would simply implement the logic, and allow the data to decide what displays. This is not typically done with menus, but it can be done with any DOM element.
 // To continue:
 // Iterate over the entire menuLinks array and for each "link" object:
-for (var _i = 0, _menuLinks = menuLinks; _i < _menuLinks.length; _i++) {
-  var link = _menuLinks[_i];
-  // Create an <a> element.
-  var el = document.createElement('a');
-  // On the new element, add an href attribute with its value set to the href property of the "link" object.
-  el.href = link.href;
-  // Set the new element's content to the value of the text property of the "link" object.
-  el.textContent = link.text;
-  // Append the new element to the topMenuEl element.
-  topMenuEl.appendChild(el);
-}
+// Create an <a> element.
+// On the new element, add an href attribute with its value set to the href property of the "link" object.
+// Set the new element's content to the value of the text property of the "link" object.
+// Append the new element to the topMenuEl element.
+
+menuLinks.forEach(function (link) {
+  var aEl = document.createElement('a');
+  aEl.href = link.href;
+  aEl.textContent = link.text;
+  topMenuEl.appendChild(aEl);
+});
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
